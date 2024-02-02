@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -7,7 +8,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          backgroundColor: Colors.amber,
           title: const Text('Profile Screen'),
           centerTitle: true,
         ),
@@ -18,9 +19,7 @@ class ProfileScreen extends StatelessWidget {
               const Text('Profile Screen'),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () => {
-                  // Go back to login screen
-                },
+                onPressed: () => {context.replace('/')},
                 child: const Text('Log out'),
               ),
             ],

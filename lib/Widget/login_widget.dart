@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginWidget extends StatelessWidget {
   const LoginWidget(
@@ -30,7 +31,7 @@ class LoginWidget extends StatelessWidget {
           const SizedBox(height: 16.0),
           ElevatedButton(
             onPressed: () => {
-              // Use go route to home page
+              context.replace('/main'),
             },
             child: const Text('Login'),
           ),

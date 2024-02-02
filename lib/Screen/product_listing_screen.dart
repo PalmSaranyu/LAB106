@@ -13,7 +13,7 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.amber,
         title: const Text('Product Listing'),
         centerTitle: true,
       ),
