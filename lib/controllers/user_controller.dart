@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:palm/app_service.dart';
+import 'package:palm/services/app_service.dart';
 import 'package:palm/models/user.dart';
 import 'package:palm/services/user_service.dart';
 
