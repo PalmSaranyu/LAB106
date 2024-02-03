@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:palm/Screen/home_sceen.dart';
 import 'package:palm/Screen/login_screen.dart';
 import 'package:palm/Screen/main_screen.dart';
-import 'package:palm/Screen/product_detail_screen.dart';
 import 'package:palm/Screen/product_listing_screen.dart';
 import 'package:palm/app_service.dart';
+import 'package:palm/controllers/product_controller.dart';
+import 'package:palm/controllers/user_controller.dart';
 
 void main() {
+  Get.put(UserController());
+  Get.put(ProductController());
   runApp(const MyApp());
 }
 
 final GoRouter _router = GoRouter(
-    redirect: _redirect,
+  redirect: _redirect,
   refreshListenable: AppService.instance,
   navigatorKey: AppService.instance.navigatorKey,
   routes: <RouteBase>[
@@ -40,14 +44,6 @@ final GoRouter _router = GoRouter(
             return const ProductListingScreen();
           },
         ),
-        GoRoute(
-          path: 'product/:id',
-          builder: (BuildContext context, GoRouterState state) {
-            // get value from path or query string
-            var id = state.pathParameters['id'] ?? '';
-            return ProductDetailScreen(productId: id);
-          },
-        ),
       ],
     ),
   ],
@@ -58,7 +54,7 @@ String? _redirect(BuildContext context, GoRouterState state) {
 
   if (!isLoggedIn) {
     return '/';
-  } else if (isLoggedIn) {
+  } else if (isLoggedIn && state.matchedLocation == '/') {
     return '/main';
   }
   return null;
